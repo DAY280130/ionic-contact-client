@@ -1,0 +1,7 @@
+{
+  "name": "nyoba-angular",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
