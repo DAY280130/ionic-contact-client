@@ -1,0 +1,46 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Data Kontak</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header>
+    <ion-toolbar>
+      <ion-title size="large"> Data Kontak </ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-list lines="full">
+    <ion-button
+      type="button"
+      [routerLink]="['/add-contact']"
+      routerLinkActive="router-link-active"
+      color="success"
+      expand="block"
+      >Tambah Kontak</ion-button
+    >
+  </ion-list>
+  <ion-list>
+    <ion-list-header>Daftar Kontak</ion-list-header>
+  </ion-list>
+  <ion-card lines="inset" *ngFor="let contact of contacts">
+    <ion-item>
+      <ion-icon name="person" slot="start"></ion-icon>
+      <ion-label>{{ contact.nama }}</ion-label>
+      <ion-button
+        color="primary"
+        slot="end"
+        [routerLink]="['/edit-contact/', contact.id]"
+        routerLinkActive="router-link-active"
+        >Edit</ion-button
+      >
+      <ion-button color="danger" slot="end" (click)="deleteContact(contact.id)"
+        >Hapus</ion-button
+      >
+    </ion-item>
+  </ion-card>
+</ion-content>
